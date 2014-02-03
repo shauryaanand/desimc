@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<turtle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://code.google.com/p/apple-tv2-xbmc/turtle/ turtle.xsd"
+	xmlns="https://code.google.com/p/apple-tv2-xbmc/turtle/">
+
+	<action id="__start__"
+		pmessage="Welcome to Movies Masti|presented by Kamal|based on Turtle">
+		<move module="core.Home" function="displayMenuItems" />
+		<next-action name="listMovies" id="display_Einthusan_Movies"
+			isfolder="true" />
+		<next-action name="Movie" id="display_Movie_Section"
+			isfolder="true" />
+		<next-action name="AZ" id="display_AZ_Menu_Section"
+			isfolder="true" />
+		<next-action name="ByYear" id="display_Year_Section"
+			isfolder="true" />
+	</action>
+
+	<action id="display_Year_Section">
+		<move module="core.movie.Menu" function="displayYearMenu" />
+		<next-action name="ChooseChar" id="display_Year_List"
+			isfolder="true" />	
+	</action>
+	
+	<action id="display_Year_List">
+		<move module="core.movie.Menu" function="displayYearList"
+			pmessage="Retrieving HD movie collection" />
+		<move module="core.einthusan.Einthusan" function="listMovies"
+			pmessage="Retrieving HD movie collection" />
+		<move module="core.movie.Metadata" function="retieveMovieInfoAndAddItem"
+			pmessage="Reading saved information|Preparing TV Channels to be displayed" />
+		<next-action name="Movie_Streams" id="display_Einthusan_Movie_Streams"
+			isfolder="true" />
+		<next-action name="Next_Page" id="display_Einthusan_Movies"
+			isfolder="true" />
+	</action>
+
+	<action id="display_AZ_Menu_Section">
+		<move module="core.movie.Menu" function="displayAtoZMenu" />
+		<next-action name="ChooseChar" id="display_AZ_List"
+			isfolder="true" />
+	</action>
+
+	<action id="display_AZ_List">
+		<move module="core.movie.Menu" function="displayAtoZList"
+			pmessage="Retrieving HD movie collection" />
+		<move module="core.einthusan.Einthusan" function="listMovies"
+			pmessage="Retrieving HD movie collection" />
+		<move module="core.movie.Metadata" function="retieveMovieInfoAndAddItem"
+			pmessage="Reading saved information|Preparing TV Channels to be displayed" />
+		<next-action name="Movie_Streams" id="display_Einthusan_Movie_Streams"
+			isfolder="true" />
+		<next-action name="Next_Page" id="display_Einthusan_Movies"
+			isfolder="true" />
+	</action>
+
+	<action id="display_Movie_Section"
+		pmessage="Einthusan|Please go to website and press an Advertisement|Keep it running in your hands">
+		<move module="core.movie.Menu" function="displayMainMenu" />
+		<next-action name="listMovies" id="display_Einthusan_Movies"
+			isfolder="true" />
+	</action>
+	
+	<action id="display_Einthusan_Movies">
+		<move module="core.einthusan.Einthusan" function="listMovies"
+			pmessage="Retrieving HD movie collection" />
+		<move module="core.movie.Metadata" function="retieveMovieInfoAndAddItem"
+			pmessage="Reading saved information|Preparing TV Channels to be displayed" />
+		<next-action name="Movie_Streams" id="play_Einthusan_Movie_Streams"
+			isfolder="false" downloadable="true" download-action-id="download_Einthusan_Movie_Streams" />
+		<next-action name="Next_Page" id="display_Einthusan_Movies"
+			isfolder="true" />
+	</action>
+
+	<action id="play_Einthusan_Movie_Streams">
+		<move module="core.einthusan.Einthusan" function="retieveMovieStreams"
+			pmessage="Retrieving movie stream information" />
+
+		<next-action name="Play" id="__play__" isfolder="false" />
+	</action>
+	
+	<action id="download_Einthusan_Movie_Streams">
+		<move module="core.einthusan.Einthusan" function="retieveMovieStreams"
+			pmessage="Retrieving movie stream information" />
+
+		<next-action name="Play" id="__download__" isfolder="false" />
+	</action>
+
+	<action id="display_Einthusan_Movie_Under_Construction">
+		<move module="core.movie.Menu" function="displayUC" pmessage="" />
+	</action>
+
+	<!-- Common Video Link Player Moves -->
+
+	<action id="snap_and_play_video">
+		<move module="moves.PreProcessor" function="prepareVideoItem" />
+		<move module="moves.SnapVideo" function="addPlaylistVideosInfo" />
+		<move module="moves.SnapVideo" function="addVideoInfo" />
+		<next-action name="Play" id="__play__" isfolder="false" />
+	</action>
+
+	<action id="snap_and_download_video">
+		<move module="moves.PreProcessor" function="prepareVideoItem" />
+		<move module="moves.SnapVideo" function="addPlaylistVideosInfo" />
+		<move module="moves.SnapVideo" function="addVideoInfo" />
+		<next-action name="Play" id="__download__" isfolder="false" />
+	</action>
+
+	<action id="snap_and_continuousplay_playlist">
+		<move module="moves.PreProcessor" function="preparePlayListItems" />
+		<move module="moves.SnapVideo" function="addPlaylistVideosInfo" />
+		<move module="moves.SnapVideo" function="addVideoInfo" />
+		<next-action name="Play" id="__play__" isfolder="false" />
+	</action>
+
+</turtle>

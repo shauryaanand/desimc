@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<settings>
+	<!-- <category label="General">
+		<setting id="email" label="30000" type="text" default="" />
+		<setting id="password" label="30001" type="text" option="hidden"
+			default="" />
+	</category> -->
+	<category label="YouTube">
+		<setting label="YouTube account details that is linked with Willow TV account:"
+			type="lsep" />
+		<setting id="yt_email" label="30000" type="text" default="" />
+		<setting id="yt_password" label="30001" type="text" option="hidden"
+			default="" />
+		<setting id="relogin" label="Force login (For this one instance)" type="bool" default="false" />
+		<setting label="Video:" type="lsep" />
+		<setting id="playbackqual" label="Select preferred playback video quality" type="enum" default="0" lvalues="30021|30022|30023"/>
+	</category>
+	<setting id="ga_time" type="text" label="GA Called" default="2000-01-01 00:00:00" visible="false"/>
+    <setting id="ga_visitor" type="text" label="GA visitor" default="" visible="false"/>
+</settings>

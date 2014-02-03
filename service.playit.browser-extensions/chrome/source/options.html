@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+label.error {
+	color: #b94a48;
+	padding: 2px 8px;
+	margin-top: 0px;
+}
+</style>
+<title>PlayIt on XBMC</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Bootstrap -->
+<link href="css/bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/m-buttons.min.css" rel="stylesheet">
+</head>
+<body>
+	<br />
+	<div class="row">
+		<div class="span6" style="float: none; margin: 0 auto;">
+			<form class="form-horizontal well" id="optionsForm" name="form"
+				action="">
+				<fieldset>
+
+					<!-- Form Name -->
+					<legend> PlayIt Options</legend>
+
+					<!-- Text input-->
+					<div class="control-group">
+						<label class="control-label" for="serviceAddress">XBMC IP
+							address</label>
+						<div class="controls">
+							<input id="serviceAddress" name="serviceAddress" type="text"
+								value="apple-tv.local" class="input-medium">
+							<label for="serviceAddress" class="error" style=""></label>
+						</div>
+					</div>
+
+					<!-- Text input-->
+					<div class="control-group">
+						<label class="control-label" for="servicePort">PlayIt
+							service port</label>
+						<div class="controls">
+							<input id="servicePort" name="servicePort" type="text"
+								value="8181" class="input-mini">
+							<label for="servicePort" class="error" style=""></label>
+						</div>
+					</div>
+
+					<div class="control-group">
+						<label class="control-label" for="frameView">Frame View
+							button</label>
+						<div class="controls">
+							<label class="checkbox"> <input id="frameView"
+								name="frameView" type="checkbox" class="input-mini">
+								Visible
+							</label>
+						</div>
+					</div>
+
+
+					<!-- Button -->
+					<div class="control-group">
+						<div class="controls">
+							<button id="save" type="button" name="save" class="m-btn blue">
+								Save <i class="icon-share-alt icon-white"></i>
+							</button>
+							<button id="reset" type="button" name="reset" class="m-btn black">
+								<i class="icon-repeat"></i> Reset
+							</button>
+						</div>
+					</div>
+
+				</fieldset>
+			</form>
+		</div>
+	</div>
+	<script src="js/jquery-2.0.0.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script src="js/additional-methods.min.js"></script>
+	<script src="options.js"></script>
+</body>
+</html>

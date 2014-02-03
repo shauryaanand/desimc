@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+	<string id="30000">Email:</string>
+	<string id="30001">Password:</string>
+	<string id="30002">Keep me signed in:</string>
+	<string id="30003">ON</string>
+	<string id="30004">OFF</string>
+	
+	<string id="30010">15</string>
+	<string id="30011">25</string>
+	<string id="30012">50</string>
+	
+	<string id="30021">1080p</string>
+	<string id="30022">720p</string>
+	<string id="30023">Standard</string>
+</strings>

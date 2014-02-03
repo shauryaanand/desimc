@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<turtle xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="https://code.google.com/p/apple-tv2-xbmc/turtle/ turtle.xsd"
+	xmlns="https://code.google.com/p/apple-tv2-xbmc/turtle/">
+<!-- 
+	<action id="__start__"
+		pmessage="Welcome to Willow TV|presented by AJ|based on Turtle">
+		<move module="mymoves.WillowTV.Account" function="login" />
+		<move module="mymoves.Home" function="selectEvents" />
+		<move module="mymoves.WillowTV.Fixtures" function="displayFixtures" />
+		<next-action name="Match_Links" id="display_Match_Links"
+			isfolder="true" />
+		<next-action name="Series" id="display_Series"
+			isfolder="true" />
+	</action>
+
+	<action id="display_Series">
+		<move module="mymoves.Home" function="empty" />
+		<next-action name="" id="" isfolder="false" />
+	</action>
+
+	<action id="display_Match_Links">
+		<move module="mymoves.WillowTV.Account" function="login" />
+		<move module="mymoves.WillowTV.StreamResolver" function="displayLinks" />
+		<next-action name="Play" id="__play__" isfolder="false" />
+	</action>
+	
+	<action id="play_Live_FREE_Channel">
+		<move module="mymoves.live.FREE_Live" function="playChannel" />
+		<next-action name="Play" id="__play__" isfolder="false" />
+	</action> -->
+	
+	<action id="__start__"
+		pmessage="Welcome to Willow TV|presented by AJ|based on Turtle">
+		<move module="mymoves.YouTube.Fixtures" function="displaySeries" />
+		<next-action name="Matches" id="display_Matches"
+			isfolder="true" />
+					<next-action name="Nothing" id="Nothing"
+			isfolder="true" />
+	</action>
+	<action id="display_Matches">
+		<move module="mymoves.YouTube.Fixtures" function="displayMatches" />
+		<next-action name="Match_Urls" id="display_Match_URL"
+			isfolder="true" />
+	</action>
+	<action id="display_Match_URL">
+		<move module="mymoves.YouTube.Fixtures" function="displayMatchUrls" />
+		<next-action name="Play_URL" id="snap_and_play_video"
+			isfolder="false" />
+	</action>
+	<action id="Nothing">
+		<move module="mymoves.YouTube.Fixtures" function="displayNothing"
+			pmessage="" />
+	</action>
+	
+	
+	<action id="snap_and_play_video">
+		<move module="mymoves.YouTube.Account" function="login" />
+		<move module="moves.PreProcessor" function="prepareVideoItem" />
+		<move module="moves.SnapVideo" function="addPlaylistVideosInfo" />
+		<move module="moves.SnapVideo" function="addVideoInfo" />
+		<next-action name="Play" id="__play__" isfolder="false" />
+	</action>
+	
+</turtle>

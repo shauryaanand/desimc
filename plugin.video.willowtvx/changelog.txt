@@ -1,0 +1,8 @@
+[B]Version v2.2.4 - v2.2.5[/B]
+- Added Google Analytics parameters.
+
+[B]Version v2.2.3[/B]
+- Error handling.
+
+[B]Version v2.2.2[/B]
+- Making compatible with new Turtle version Google Analytics.
